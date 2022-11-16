@@ -1,0 +1,580 @@
+
+
+a = "life is too short, you need python"
+b = a[-1]
+print(b)
+#n
+
+a = "life is too short, you need python"
+c = a[0]
+print(c)
+#L
+
+#문자열 길이
+d = len(a)
+print(d)
+#34
+
+
+# 문자열 곱하기
+e = "python"
+f = e*2
+print(f)
+#pythonpython
+
+# 문자열 더해서 연산하기
+head = "안녕"
+tail = "하세요"
+head + tail
+# '안녕하세요'
+
+##### 문자열 인덱싱 ; 가리키는것
+a = "life is too short, you need python"
+a[-1]
+# > 문자열을 뒤에서부터 읽는다(-) >> n
+a[0]
+# > 문자열 맨앞자리는 1이 아닌 0부터 시작한다.
+
+#### 문자열 슬라이싱 ; a[0:x] 첫번째자리에서부터 x번째까지 즉, ★ a[시작번호,끝번호]
+a = "life is too short, you need python"
+a[0:4]
+# <출력> life
+a[0:5]
+# <출력> life ; 띄어쓰기포함
+a[5:7]
+# <출력> is
+a[12:17]
+# <출력> short
+a[19:]
+# <출력> you need python
+a[:17]
+# <출력> life is too short
+a[:]
+# <출력> life is too short, you need python
+a[19:-7]
+# <출력>  you need
+
+#슬라이싱으로 문자열나누기
+a="20220826sunny"
+
+date=a[:8]
+print(date)
+# <출력> 20220826
+
+weather=a[8:]
+print(weather)
+# <출력> sunny
+
+
+year=a[:4]
+day=a[4:8]
+print(year)
+print(day)
+print(year + day)
+
+print(weather)
+print(year+ day + weather)
+print(year,day,weather)
+
+##### 특정문자 하나를 바꾸려면
+# pithon > python
+word="pithon"
+
+b = word[:1] #p
+print(b)
+c = word[2:] #thon
+print(b+'y'+c)
+# <출력> python
+
+word="pithon"
+print(word.replace("i","y"))
+# <출력> python
+
+
+###문자열 위치 index
+
+str= "hi. nice to meet you mina and yuna."
+index = str.index("n")
+print(index)   # <출력>  4
+
+# 띄어쓰기 포함
+# str의 "n"을 찾는데 찾는값인 n의 index+1 은 n이 두번째로 있는 위치값
+str= "hi. nice to meet you mina and yuna."
+index2 =str.index("n",index+1)
+print(index2)   # <출력> 23
+
+index3 = str.index("n",index+2)   # >23 index2 값이랑 같다
+print(index3)
+
+
+
+#### find
+str= "hi. nice to meet you mina and yuna."
+print(str.find("hara"))   # <출력> -1
+#값이 없으면 -1   index 에서 값이 없으면 오류
+
+#### 문자열 포매팅 !!!!! #####
+a="i eat %d apples" % 3
+print(a)  # <출력> i eat 3 apples
+
+b="i eat %s apples" % "six"
+print(b)  # <출력> i eat six apples
+
+number = 3
+c = "i eat %d apples." % number
+print(c)  # <출력> i eat 3 apples.
+
+number = 4
+day = "three"
+d = "i ate %d apples. so i was sick for %s days." % (number, day)
+print(d)  # <출력> i ate 4 apples. so i was sick for three days.
+
+## error is 98% 로 만들기
+"error is %d%%" % 98
+# <출력> 'error is 98%'
+
+#전체길이가 10개인 문자열 공간에서 **오른쪽**으로 정렬하고 나머지는 공백으로 처리
+"%10s" % "hi"
+# <출력> '        hi'
+"%-10s" % "hi"     #>>'hi        '
+# <출력> 'hi        '
+#전체길이가 10개인 문자열 공간에서 **왼쪽**으로 정렬하고 나머지는 공백으로 처리
+
+#
+#소수점 표현
+#소수점 4자리까지만 나타냄
+"%0.4f" % 1.234567
+# <출력> '1.2346'
+
+"%10.5f" % 0.123456
+# <출력> '   0.12346'
+
+#소수점 5자리까지만 나타내고 전체 길이가 10개인 문자열 오른쪽 정렬
+
+#
+#format함수 사용한 포맷팅
+#-1 숫자대입
+"i eat {0} apples". format(3)
+# <출력>  i eat 3 apples
+
+#-2 문자대입
+"i eat {0} apples" .format("six")
+# <출력>  i eat six apples
+
+#-3 숫자값가진 변수 대입
+number=3
+"i eat {0} apples" .format(number)
+# <출력>  i eat 3 apples
+
+
+#-3(2) 두개 이상의 값 넣기
+"i eat {0} apples, so i was sick {1} days." .format(10,three)
+# <출력> NameError: name 'three' is not defined
+
+number = 10
+day = "three"
+"i eat {0} apples, so i was sick {1} days." .format(number, day)
+# <출력>  'i eat 10 apples, so i was sick three days.'
+#-3(3) 인덱스+이름 혼용
+"i eat {0} apples, so i was sick {day} days." .format(10, day="three")
+# <출력>  'i eat 10 apples, so i was sick three days.'
+
+
+
+
+##정렬
+# 왼쪽----- ; 총자릿수10자리
+"{0:<10}".format("좌")
+# <출력> '좌        '
+
+# -----오른쪽 ; 총자릿수10자리,나머지 공백
+"{0:>10}".format("우")
+# <출력> '         우'
+
+# -----가운데----- ; 총자릿수10자리,나머지 공백
+"{0:^10}".format("중")
+# <출력> '    중     '
+
+
+
+
+
+#공백채우기
+"{0:=^10}".format("가운데")
+f'{"가운데":=^10}'
+# <출력> '===가운데===='
+
+"{0:!<10}".format("왼쪽")
+f'{"왼쪽":!<10}'
+# <출력> '왼쪽!!!!!!!!'
+
+"{0:?>10}".format("오른쪽")
+f'{"오른쪽":?>10}'
+# <출력> '???????오른쪽'
+
+##공백으로 남기고 싶으면 부등호 옆에 =,!,? 만 지우면됨
+
+
+
+
+# 문자열 관련함수
+# 찾는 문자가 몇개인지
+a = "happy"
+a.count('p')
+# <출력> 2
+
+
+#몇번째 자리에 있는지
+a = "python is the best choice"
+a.find('e')  # <출력> 12
+a.find('c')  # <출력> 19
+a.find('j')  # <출력> -1
+
+a="life is too short"
+a.index('o')  #<출력> 9
+a.index('j')  #<출력> ValueError: substring not found
+
+####문자열삽입
+
+",".join('abc')          #<출력>'a,b,c'
+",".join(['a','b','c'])  #<출력>'a,b,c'
+
+#대문자로
+a="hello"
+a.upper()    #<출력> 'HELLO'
+
+a="Hello"
+a.lower()    #<출력> 'hello'
+
+
+
+
+#공백지우기
+# 오른쪽
+a=" hehe      "
+a.rstrip()      #<출력> ' hehe'
+
+# 왼쪽
+b="  hehe  "
+b.lstrip()      #<출력> 'hehe  '
+
+# 양쪽
+c="  he he    "
+c.strip()        #<출력> 'he he'
+
+
+
+#문자열바꾸기
+a="life is too short"
+a.replace("life","your leg")
+#<출력> 'your leg is too short'
+
+
+
+##문자열나누기
+a="life is too short"
+a.split( )     # 공백기준으로 나누기
+
+b="life:is:too:short"
+b.split(':')   # : 기준으로 나누기
+
+
+
+
+
+# ** 리스트**
+#리스트 인덱싱
+a=[1,2,3]
+print(a)    # <출력> [1, 2, 3]
+a[0]        # <출력> 1
+a[1]+a[2]   # <출력> 5
+a[-1]       # <출력> 3
+
+b=[1,2,3,['a','b','c']]
+b[0]       # <출력> 1
+b[1]       # <출력> 2
+b[3]       # <출력> ['a', 'b', 'c']
+b[-1][0]   # <출력> 'a'
+b[3][1]    # <출력> 'b'
+
+c=[1,2,3,['a','b','c',['de','fg']]]
+c[3][3][1]   # <출력> 'fg'
+c[3][3][0]   # <출력> 'de'
+
+#슬라이싱
+a = [1,2,3,4,5]
+a[0:5]    # <출력> [1, 2, 3, 4, 5]
+a[:5]     # <출력> [1, 2, 3, 4, 5]
+a[:2]     # <출력> [1, 2]
+a[5:0]    # <출력> []
+a[5:]     # <출력> [6]
+a[-1:]    # <출력> [5]
+
+#중첩슬라이싱
+a=[1,2,3,['a','b','c'],4,5]
+a[3:6]    # <출력> [['a', 'b', 'c'], 4, 5]
+a[2:4]    # <출력> [3, ['a', 'b', 'c']]
+a[0:2]    # <출력> [1, 2]
+
+
+#리스트요소추가 append
+a=[1,2,3]
+a.append(4)
+print(a)     # <출력> [1, 2, 3, 4]
+
+a.append([5,6])
+print(a)     # <출력> [1, 2, 3, 4, [5, 6]]
+
+#리스트정렬 sort
+a=[1,3,2,4]
+a.sort()
+print(a)      # <출력> [1, 2, 3, 4]
+
+#리스트뒤집기 reverse
+a=[1,2,3,4]
+a.reverse()
+print(a)      # <출력> [4, 3, 2, 1]
+
+b=[1,3,5,7]
+b.reverse()
+print(b)      # <출력> [7, 5, 3, 1]
+
+#위치반환 index >>>>리스트에 x값이 있는 위치값을 알려줌/
+a=[1,2,3]
+a.index(3)    # <출력> 2
+a.index(1)    # <출력> 0
+
+
+#요소삽입 insert >>>> x자리값에 y값을 넣어주어라
+a=[1,2,3,4]
+a.insert(0,5)         # <출력> [5, 1, 2, 3, 4]
+a.insert(2,'그리고')   # <출력> [5, 1, '그리고', 2, 3, 4]
+
+#요소제거 remove  >>첫번째로 나오는 값을 지움
+a=[1,2,3,4,2,3]
+a.remove(2)        # <출력>  [1, 3, 4, 2, 3]
+
+# >>> 두개를 가지고 있을때> 한번더 remove함수사용
+a.remove(2)
+
+##요소끄집어내기 pop >>맨마지막요소 보여주고 보여준건 삭제
+a=[1,2,3]
+a.pop()
+a.pop(1)
+
+##리스트 확장 extend >> x에는 리스트만 올 수있고 "a+=1" => "a=a+1"
+# "a-=1" => "a=a-1" / "a*=1" => "a=a*1" / "a/=1" => "a=a/1" 이된다.
+
+a=[1,2,3]
+a.extend([4,5])    # <출력> [1, 2, 3, 4, 5]
+a+=[4,5]           # <출력> [1, 2, 3, 4, 5]
+#a.extend([4,5]) = a+=[4,5] 결과값같다.
+
+#################8/26 오전##################
+
+
+
+
+
+##튜플 괄호 사용, 만들면 수정불가, 수정시 튜플>리스트>수정>튜플 or 슬라이싱 / 리스트는 대괄호
+#원소가 하나일때 콤마 꼭 사용 > t2 = (1, )
+
+a= (3, )
+print(type(a))
+## <출력> <class 'tuple'>
+
+#튜플 요솟값 삭제, 변경 불가
+
+#튜플인덱싱
+t1 = (1,2,'가','나')
+t1[3]  #<출력> '나'
+t1[0]  #<출력> 1
+
+#튜플슬라이싱
+t1=(1,2,'가','나')
+t1[0:]   # <출력> (1, 2, '가', '나')
+t1[2:]   # <출력> ('가', '나')
+
+#튜플더하기
+t1=(1,2,3)
+t2=('가','나')
+t1+t2
+# <출력> (1, 2, 3, '가', '나')
+
+#튜플곱하기
+t1=(8,2)
+t1*2
+# <출력> (8, 2, 8, 2)
+
+#튜플길이
+t1=(1,2,3,4,5,6)
+len(t1)
+# <출력> 6
+
+
+##딕셔너리 : 대응관계 , 중괄호, 인덱스x {}
+## *** key값에는 리스트 딕셔너리 x, 튜플 o
+
+#딕셔너리 쌍 추가★★★  *a[2] => 인덱스아님
+a={1:'a'}
+a[2] = 'b'
+print(a)
+# <출력> {1: 'a', 2: 'b'}
+a['name'] ='pay'
+a[3] = ['나','는']
+print(a)
+# <출력> {1: 'a', 2: 'b', 'name': 'pay', 3: ['나', '는']}
+
+#딕셔너리 요소 삭제
+del a[1]
+print(a)
+# <출력> {2: 'b', 'name': 'pay', 3: ['나', '는']}
+
+del a[3]
+print(a)
+# <출력> {2: 'b', 'name': 'pay'}
+
+# key 사용해서 value값 찾기
+a={'병아리':'삐약삐약','돼지':'꿀꿀'}
+a['병아리']   # <출력> '삐약삐약'
+a['돼지']    # <출력> '꿀꿀'
+
+#딕셔너리 함수 :리스트만들기
+# 1)keys
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+a.keys()
+#<출력> dict_keys(['봄', '여름', '가을', '겨울'])
+
+# 2)values
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+a.values()
+#<출력> dict_values(['벚꽃', '수박', '단풍', '눈'])
+
+# 3)clear :지우기
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+a.clear()
+#<출력> {}
+
+# 4)get : key값으로 value얻기
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+a.get('가을') # <출력> '단풍'
+a['가을']     # <출력> '단풍'
+
+#5) 존재하지 않는 값 = none >> 마지막까지 진행은 함
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+print(a.get('사계절'))  #<출력> None
+a.get('사계절')
+
+#5-2) 존재하지 않는 값 = 오류 종료 >> 대괄호일때
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+a.get['사계절']  #<출력> TypeError: 'builtin_function_or_method' object is not subscriptable
+a['사계절']      #<출력> KeyError: '사계절'
+
+#5-3) 존재하지 않는 key 값일때 디폴드정해 놓은 값이 나오기 =>get(x,디폴트값)
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+a.get('사계절','없음')
+# <출력> '없음'
+
+cabinet={3:"a",10:"b"}
+print((cabinet.get(5,"사용가능")))
+# <출력> 사용가능
+
+#6)in : key값이 있는지 확인
+a={'봄':'벚꽃','여름':'수박','가을':'단풍','겨울':'눈'}
+'봄'in a      #<출력>True
+'사계절' in a  #<출력>False
+
+#7 추가 업데이트
+cabinet={3:"a",10:"b"}
+
+cabinet[3]="c"
+print(cabinet)
+#<출력>{3: 'c', 10: 'b'}
+
+cabinet[5]="d"
+print(cabinet)
+#<출력>{3: 'c', 10: 'b', 5: 'd'}
+
+
+
+
+#########set 집합  **중복허용x, 순서x
+# **인덱싱 > 리스트 튜플로 변환해야함
+
+
+s1=set([1,2,3])
+l1=list(s1)
+l1
+l1[0]
+#**[]사용
+
+t1=tuple(s1)
+t1[0]
+
+s1=set([1,2,3,4,5,6,7])
+s2=set([3,4,5,6,7,8,9])
+
+
+############교집합 합집합 차집합
+
+# & , intersection ; 교집합
+s1&s2
+s1.intersection(s2)
+
+# | ,union ; 합집합
+s1|s2
+s1.union(s2)
+
+# - ,difference ; 차집합
+s1-s2
+s1.difference(s2)
+s2-s1
+s2.difference(s1)
+
+# add ; 값1개추가   #튜플에서는 사용불가
+s1=set([1,2,3])
+s1.add(4)
+s1
+
+# update ; 값여러개추가
+s1=set([1,2,3])
+s1.update([4,5,6])
+s1
+
+# remove ;특정값제거
+s1=set([1,2,3])
+s1.remove(1)
+s1
+
+
+# bool ; 참 거짓 나타냄
+bool('python')
+#true
+bool('')
+#false
+bool([1,2,3])
+#true
+bool([])
+#false
+bool(0)
+#false
+bool(3)
+#true
+
+
+a = [1,2,3,4]
+while a:
+    print(a.pop())
+
+if[]:
+    print("true")
+else:
+    print("false")
+# >> true을 출력함
+
+
+
+##변수
+
+
+##리스트복사부터~ > 8/29
